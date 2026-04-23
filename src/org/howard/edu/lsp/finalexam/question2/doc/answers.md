@@ -1,0 +1,3 @@
+# Question 2 Design Explanation
+
+The Template Method pattern is applied through the abstract `Report` class, which defines `generateReport()` as a `final` method. This method calls `loadData()`, `formatHeader()`, `formatBody()`, and `formatFooter()` in a fixed sequence that subclasses cannot change. `StudentReport` and `CourseReport` each override only those four abstract methods to supply their own data and formatting, while the overall workflow stays locked in the base class. The `Driver` stores both report types in a `List<Report>` and calls `generateReport()` through the base class reference, which demonstrates polymorphism since the correct subclass implementation runs at runtime without the driver needing to know which type it is dealing with.
